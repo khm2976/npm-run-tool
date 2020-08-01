@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "showlist": "node ./run-tool.js"
+    "select": "node ./run-tool.js select"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^6.0.0"
+    "commander": "^6.0.0",
+    "inquirer": "^7.3.3"
   }
 }

@@ -1,12 +1,23 @@
 const program = require('commander');
+const inquirer = require('inquirer');
 const list = require('./list');
+const { catelist, typesCategory } = require('./value');
 
-// list(); -> 커맨드 list로 처리
-program
-    .command('list')    // 커맨드 이름
-    .alias('ls')        // 커맨드 축약형
-    .description('show categorylist')  // 설명
-    .action(function () {
-        list();
+list();
+
+program 
+    .command('select')
+    .alias('s')
+    .description('select category')
+    .action((type, args)=>{
+        const questions = [
+            { type: 'list', name: '카테고리', message: 'Choose category', choices: typesCategory },
+        ];
+        
+        inquirer
+            .prompt(questions)
+            .then(function (answers) {
+                console.log(answers);
+        });
     });
 program.parse(process.argv);
